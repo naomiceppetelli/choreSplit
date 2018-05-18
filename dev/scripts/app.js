@@ -47,6 +47,7 @@ class App extends React.Component {
         //assigning the unique key given by firebase as a property on the user object 
         data[item].key = item;
         const users = userArray.push(data[item])
+        // console.log(data)
       }
       // console.log(userArray)
       this.setState({
@@ -130,30 +131,57 @@ class App extends React.Component {
     });
   }
 
+  completeChore(userKey, key, completed) {
+    console.log(userKey, key, completed)
+    firebase.database().ref(`users/${userKey}/chore/${key}`)
+      .update({
+        completed: completed === true ? false : true
+      })
+  }
+
+  removeChore(userKey, key) {
+    firebase.database().ref(`users/${userKey}/chore/${key}`).remove()
+  }
+
+  removeUser(userKey) {
+    firebase.database().ref(`users/${userKey}`).remove()
+  }
 
   render() {
     return (
       <div>
-        <h1>Chore List</h1>
-        <form className = "form enterUser" action="POST" onSubmit={this.handleSubmit}>
-          <input type="text" onChange = {this.handleChange} placeholder="enter a new user" name="userName" value={this.state.userName} />
-          <input type="submit"/>
-        </form>
-        <form className = "form enterChore" action="POST" onSubmit={this.addChoreToUser}>
-          <input type="text" onChange = {this.handleChange} placeholder = "enter a chore" name = "task" value={this.state.task} /> 
-          <input type = "submit" />
-        </form>
-        <div>
-          <ul>
-            {this.state.users.map((user) => {
-              // console.log(user)
-              
-              return <UserList 
-              name = {user.name}
-              chore = {user.chore} />
-            })}
-            </ul>
-        </div>
+        <header>
+          <h1>Chore List</h1>
+        </header>
+        <main>
+          <form className = "form enterUser" action="POST" onSubmit={this.handleSubmit}>
+            <input type="text" onChange = {this.handleChange} placeholder="enter a new user" name="userName" value={this.state.userName} />
+            <input type="submit" value="Add"/>
+          </form>
+          <form className = "form enterChore" action="POST" onSubmit={this.addChoreToUser}>
+            <input type="text" onChange = {this.handleChange} placeholder = "enter a chore" name = "task" value={this.state.task} /> 
+            <input type = "submit" value="Enter"/>
+          </form>
+          <div>
+            <ul>
+              {this.state.users.map((user) => {
+                console.log(user.chore)
+                
+                return <UserList 
+                key = {user.key}
+                userKey = {user.key}
+                name = {user.name}
+                chore = {user.chore} 
+                completeChore = {this.completeChore}
+                removeChore = {this.removeChore}
+                removeUser = {this.removeUser}/>
+              })}
+              </ul>
+          </div>
+        </main>
+        <footer>
+
+        </footer>
       </div>
     )
   }
