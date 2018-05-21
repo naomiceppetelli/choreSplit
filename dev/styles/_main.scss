@@ -1,0 +1,86 @@
+.pageContent {
+    min-height: 100vh;
+    margin: 0 auto;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    margin: 150px auto 35px;
+    position: relative;
+
+    .formContainer {
+        width: 40%;
+        position: fixed;
+        left: 0;
+        bottom: 35px;
+        top: 150px;
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: space-around;
+        background: $white;
+
+        form {
+            width: 80%;
+            margin: 0 auto;
+            display: flex;
+            flex-flow: column wrap;
+            justify-content: space-between;
+            // align-items: center;
+            position: relative;
+            
+            
+            h2 {
+                margin-bottom: 20px;
+                text-transform: capitalize;
+            }
+
+            h3 {
+                color: $orange;
+            }
+
+            input {
+                height: 40px;
+            }
+
+            .inputContainer {
+                display: flex;
+                width: 90%;
+                margin-top: 25px;
+                
+                input[type=text] {
+                    width: 100%;
+                    border: 1px solid $black;
+                    font-size: 1rem;
+                }
+    
+                input[type=text]::placeholder {
+                    padding-left: 25px;
+                    font-size: 1rem;
+                    
+                }
+                input[type=submit] {
+                    width: 30%;
+                    background: $black;
+                    color: $white;
+                    font-size: 1rem;
+                    font-family: $primary-font;
+                    font-weight: lighter;
+                    border-radius: 0 10px 10px 0;
+                    border: none;
+                }
+
+                input[type=submit]:hover {
+                    color: $purple;
+                }
+            }
+        }
+    }
+
+    .listContainer {
+        width: 70%;
+        position: relative;
+        right: 0;
+        margin-left: 40%;
+    }
+}

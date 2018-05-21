@@ -1,4 +1,15 @@
 button {
     border: none;
     background: transparent;
+    color: $black;
+}
+
+.buttonDiv {
+    .completeButton:hover, .reAddButton:hover {
+        color: $green;
+    }
+
+    .deleteButton:hover {
+        color: $orange;
+    }
 }

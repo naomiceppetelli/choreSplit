@@ -1,0 +1,22 @@
+footer {
+    background: $purple;
+    height: 35px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    color: $white;
+
+    p {
+        margin: 0;
+        text-align: center;
+        font-family: $primary-font;
+        font-size: 0.8rem;
+        padding-top: 10px;
+    }
+
+    a {
+        text-decoration: none;
+        color: $white;
+    }
+}

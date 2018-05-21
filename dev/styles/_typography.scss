@@ -1,0 +1,26 @@
+body {
+    font-size: 62.5%;
+    color: $black;
+    background: $black;
+}
+
+h1 {
+    font-family: $secondary-font; 
+    font-size: 3.7rem;
+    text-align: left;
+}
+
+h2 {
+    font-family: $secondary-font;
+    font-size: 1.5rem;
+    font-weight: lighter;
+}
+
+
+h3 {
+    font-family: $primary-font;
+    font-weight: lighter;
+    font-size: 1rem;
+    margin-bottom: 8px;
+    letter-spacing: 1.5px;
+}

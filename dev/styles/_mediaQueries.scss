@@ -1,0 +1,85 @@
+@media (max-width: 900px) {
+    h1 {
+        font-size: 3.1rem;
+        text-align: center;
+    }
+
+    h3 {
+        font-size: 0.8rem;
+    }
+    
+    main {
+        flex-direction: column;
+
+        .formContainer {
+            position: static;
+            width: 100%;
+            padding: 25px 0;
+            width: 90%;
+            margin: 20px auto 0;
+            border-radius: 15px; 
+        
+        }
+
+        .listContainer {
+            margin: 0 auto;
+            width: 100%;
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    h2 {
+        font-size: 1.1rem;
+    }
+
+    header {
+        height: 20vh;
+    }
+
+    main {
+        margin-top: 20vh;
+    }
+
+    main .formContainer {
+        height: 70vh;
+
+        form {
+            .inputContainer {
+            margin-top: 15px;
+            }
+        }
+    }
+
+    footer {
+        height: 5vh;
+    }
+}
+
+@media (max-width: 340px) {
+    h1 {
+        font-size: 2.6rem;
+    }
+
+    header {
+        height: 25vh; 
+    }
+
+    main {
+        margin: 25vh auto 0;
+
+        .formContainer {
+            justify-content: space-around;
+            margin-top: 0;
+
+            form input {
+            height: 30px;
+
+                h2 {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+
+}

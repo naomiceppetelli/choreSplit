@@ -149,24 +149,35 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className = "pageContent">
         <header>
-          <h1>Chore List</h1>
+          <div className="headerContainer">
+            <h1>Chore List</h1>
+            <h3>A chore splitting application that randomly assigns a chore to a user</h3>
+          </div>
         </header>
         <main>
-          <form className = "form enterUser" action="POST" onSubmit={this.handleSubmit}>
-            <input type="text" onChange = {this.handleChange} placeholder="enter a new user" name="userName" value={this.state.userName} />
-            <input type="submit" value="Add"/>
-          </form>
-          <form className = "form enterChore" action="POST" onSubmit={this.addChoreToUser}>
-            <input type="text" onChange = {this.handleChange} placeholder = "enter a chore" name = "task" value={this.state.task} /> 
-            <input type = "submit" value="Enter"/>
-          </form>
-          <div>
-            <ul>
-              {this.state.users.map((user) => {
-                console.log(user.chore)
-                
+          <div className = "formContainer">
+            <form className = "form enterUser" action="POST" onSubmit={this.handleSubmit}>
+              <h2>Enter a name</h2>
+              <h3>To get started enter a name for your initial chore list.  Add as many users as you'd like!</h3>
+              <div className = "inputContainer">
+                <input type="text" onChange = {this.handleChange} placeholder="enter a new user" name="userName" value={this.state.userName} />
+                <input type="submit" value="Add"/>
+              </div>
+            </form>
+            <form className = "form enterChore" action="POST" onSubmit={this.addChoreToUser}>
+              <h2>Add a chore</h2>
+              <h3>You can now assign a chore! Enter a task below and it will be randomly assigned to a user.</h3>
+              <div className = "inputContainer">
+                <input type="text" onChange = {this.handleChange} placeholder = "enter a chore" name = "task" value={this.state.task} /> 
+                <input type = "submit" value="Add"/>
+              </div>
+            </form>
+          </div>
+          <div className = "listContainer">
+            <ul className = "userList">
+              {this.state.users.map((user) => {      
                 return <UserList 
                 key = {user.key}
                 userKey = {user.key}
@@ -180,7 +191,7 @@ class App extends React.Component {
           </div>
         </main>
         <footer>
-
+          <p>Made by <a href="naomiceppetelli.com">Naomi Ceppetelli</a> ©2018</p>
         </footer>
       </div>
     )
