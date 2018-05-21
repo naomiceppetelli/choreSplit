@@ -1,7 +1,7 @@
 @media (max-width: 900px) {
     h1 {
         font-size: 3.1rem;
-        text-align: center;
+        // text-align: center;
     }
 
     h3 {
@@ -35,6 +35,14 @@
 
     header {
         height: 20vh;
+        
+        h1 {
+            text-align: center;
+        }
+        
+        img {
+            display: none;
+        }
     }
 
     main {
@@ -62,24 +70,28 @@
     }
 
     header {
-        height: 25vh; 
+        h3 {
+            font-size:0.7rem;
+        } 
     }
 
     main {
-        margin: 25vh auto 0;
+        margin: 23.5vh auto 0;
 
         .formContainer {
             justify-content: space-around;
             margin-top: 0;
 
-            form input {
-            height: 30px;
+            form {
+                input {
+                    height: 30px;
+                }    
 
                 h2 {
                     margin-bottom: 0;
                 }
             }
+            
         }
     }
-
 }

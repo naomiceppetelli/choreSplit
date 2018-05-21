@@ -154,6 +154,7 @@ class App extends React.Component {
           <div className="headerContainer">
             <h1>Chore List</h1>
             <h3>A chore splitting application that randomly assigns a chore to a user</h3>
+            <img src="../../broom.svg" alt=""/>
           </div>
         </header>
         <main>

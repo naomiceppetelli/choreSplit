@@ -13,6 +13,7 @@ header {
     .headerContainer {
         max-width: 75%;
         margin: 0 auto;
+        position: relative;
         
         h1 {
             margin: 0;
@@ -22,6 +23,13 @@ header {
         h3 {
             text-align: center;
             letter-spacing: 1.5px;
+        }
+
+        img {
+            width: 12%;
+            position: absolute;
+            top: 0;
+            right: 10px;
         }
     }
 }

@@ -55,7 +55,7 @@ main {
                 }
     
                 input[type=text]::placeholder {
-                    padding-left: 25px;
+                    padding-left: 40px;
                     font-size: 1rem;
                     
                 }
@@ -71,9 +71,9 @@ main {
                 }
 
                 input[type=submit]:hover {
-                    color: $purple;
+                    color: $orange;
                 }
-            }
+            }    
         }
     }
 
