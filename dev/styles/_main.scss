@@ -52,13 +52,19 @@ main {
                     width: 100%;
                     border: 1px solid $black;
                     font-size: 1rem;
+                    text-indent: 20px;
                 }
     
                 input[type=text]::placeholder {
-                    padding-left: 40px;
                     font-size: 1rem;
+                    color: $black;
                     
                 }
+
+                input[type=text]:focus {
+                    border: 1px solid $orange;
+                }
+
                 input[type=submit] {
                     width: 30%;
                     background: $black;
@@ -70,8 +76,14 @@ main {
                     border: none;
                 }
 
+                input[type=submit]:focus {
+                    background: $orange;
+                    color: $white;
+                }
+
                 input[type=submit]:hover {
-                    color: $orange;
+                    background: $orange;
+                    color: $white;
                 }
             }    
         }
