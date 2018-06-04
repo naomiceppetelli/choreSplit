@@ -27,14 +27,12 @@ class App extends React.Component {
       userName: '',
       users: []
     };
-    //BIND UR SHIT HERE
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleChange = this.handleChange.bind(this)
     this.addChoreToUser = this.addChoreToUser.bind(this)
   }
 
 
-  //NEED TO MOUNT  
   componentDidMount() {
     const dbRef = firebase.database().ref('users')
     //taking a snapshot of the firebase database 
@@ -43,13 +41,10 @@ class App extends React.Component {
       const data = snapshot.val();
       const userArray = [];
       for (let item in data) {
-        // console.log(item)
         //assigning the unique key given by firebase as a property on the user object 
         data[item].key = item;
         const users = userArray.push(data[item])
-        // console.log(data)
       }
-      // console.log(userArray)
       this.setState({
         users: userArray
       })
@@ -60,7 +55,6 @@ class App extends React.Component {
     this.setState({
       [e.target.name]: e.target.value
     })
-    // console.log(e.target.name, e.target.value)
   }
 
   addChoreToUser(e) {
@@ -71,19 +65,15 @@ class App extends React.Component {
       task: this.state.task,
       completed: false 
     }
-    // console.log(chore)
 
     //randomly assigning a chore to a user 
     const users = Array.from(this.state.users) 
 
-    // console.log(users)
     const randomNumber = () => {
       return Math.floor(Math.random() * users.length)
     }
 
     const assignUser = users[randomNumber()]
-
-    // console.log(assignUser)
 
     //make a second dbRef that pushses the chore to that user specifically through the template literal pathname 
     const dbRef2 = firebase.database().ref(`users/${assignUser.key}/chore`)
@@ -110,8 +100,6 @@ class App extends React.Component {
     const users = [];
     
     users.push(user);
-
-    // console.log(users);
 
     this.setState({
       users: users
@@ -154,26 +142,32 @@ class App extends React.Component {
           <div className="headerContainer">
             <h1>Chore List</h1>
             <h3>A chore splitting application that randomly assigns a chore to a user</h3>
-            <img src="../../broom.svg" alt=""/>
+            <img src="../../public/assets/broom.svg" alt=""/>
           </div>
         </header>
         <main>
           <div className = "formContainer">
             <form className = "form enterUser" action="POST" onSubmit={this.handleSubmit}>
-              <h2>Enter a name</h2>
-              <h3>To get started enter a name for your initial chore list.  Add as many users as you'd like!</h3>
-              <div className = "inputContainer">
-                <input type="text" onChange = {this.handleChange} placeholder="enter a new user" name="userName" value={this.state.userName} />
-                <input type="submit" value="Add"/>
+              <div className = "formInteriorContainer">
+              <img src="../../public/assets/oneFingers.svg" alt="icon denoting that this is the first step"/>
+                <h2>Enter a name</h2>
+                <h3>To get started enter a name for your initial chore list.  Add as many users as you'd like!</h3>
+                <div className = "inputContainer">
+                  <input type="text" onChange = {this.handleChange} placeholder="enter a new user" name="userName" value={this.state.userName} required/>
+                  <input type="submit" value="Add"/>
+                </div>
               </div>
             </form>
             <form className = "form enterChore" action="POST" onSubmit={this.addChoreToUser}>
-              <h2>Add a chore</h2>
-              <h3>You can now assign a chore! Enter a task below and it will be randomly assigned to a user.</h3>
-              <div className = "inputContainer">
-                <input type="text" onChange = {this.handleChange} placeholder = "enter a chore" name = "task" value={this.state.task} /> 
-                <input type = "submit" value="Add"/>
-              </div>
+              <img src="../../public/assets/twoFingers.svg" alt="icon denoting that this is the second step"/>
+             <div className = "formInteriorContainer">
+                <h2>Add a chore</h2>
+                <h3>You can now assign a chore! Enter a task below and it will be randomly assigned to a user.</h3>
+                <div className = "inputContainer">
+                  <input type="text" onChange = {this.handleChange} placeholder = "enter a chore" name = "task" value={this.state.task} required/> 
+                  <input type = "submit" value="Add"/>
+                </div>
+             </div>
             </form>
           </div>
           <div className = "listContainer">

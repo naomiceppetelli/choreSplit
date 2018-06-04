@@ -29,6 +29,16 @@ main {
             // align-items: center;
             position: relative;
             
+            img {
+                width: 12%;
+                position: absolute;
+                left: -12%;
+                top: 3%;
+            }
+
+            .formInteriorContainer {
+                margin-left: 3%;
+            }
             
             h2 {
                 margin-bottom: 20px;

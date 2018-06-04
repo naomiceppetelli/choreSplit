@@ -1,22 +1,5 @@
 import React from 'react' 
 
-//change this to a complex component 
-// class UserList extends React.Componenent {
-//     constructor(props) {
-//         super(props)
-//         this.state = {
-//             choresToDo = [],
-//             completed = []
-//         };
-//     }
-
-//     componentDidMount() {
-
-//     }
-
-//     Render() {
-//     }
-// }
 const UserList = (props) => {
                     return (
                         <li key = {props.userKey}>
@@ -33,7 +16,6 @@ const UserList = (props) => {
                                                 return props.chore[key].completed === false
                                             })
                                             .map((key) => {
-                                            // console.log(key)
                                             return (
                     
                                                 <li key = {key}>
@@ -81,5 +63,3 @@ const UserList = (props) => {
 
 export default UserList;
 
-//how to get the user name to render even if there is not chore entered
-//how to structure the data to get the unique key for each chore so that they can be completed/deleted
