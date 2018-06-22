@@ -16,8 +16,6 @@ const config = {
 
 firebase.initializeApp(config);
 
-
-
 //beginning of application 
 class App extends React.Component {
   constructor () {
@@ -31,7 +29,6 @@ class App extends React.Component {
     this.handleChange = this.handleChange.bind(this)
     this.addChoreToUser = this.addChoreToUser.bind(this)
   }
-
 
   componentDidMount() {
     const dbRef = firebase.database().ref('users')
@@ -88,8 +85,6 @@ class App extends React.Component {
     });
   }
 
-
-
   handleSubmit(e) {
     //the event is passed in for the event handler, and we want to prevent the default action from happening 
     e.preventDefault();
@@ -142,14 +137,14 @@ class App extends React.Component {
           <div className="headerContainer">
             <h1>Chore List</h1>
             <h3>A chore splitting application that randomly assigns a chore to a user</h3>
-            <img src="../../public/assets/broom.svg" alt=""/>
+            <img src="public/assets/broom.svg" alt=""/>
           </div>
         </header>
         <main>
           <div className = "formContainer">
             <form className = "form enterUser" action="POST" onSubmit={this.handleSubmit}>
               <div className = "formInteriorContainer">
-              <img src="../../public/assets/oneFingers.svg" alt="icon denoting that this is the first step"/>
+              <img src="public/assets/oneFingers.svg" alt="icon denoting that this is the first step"/>
                 <h2>Enter a name</h2>
                 <h3>To get started enter a name for your initial chore list.  Add as many users as you'd like!</h3>
                 <div className = "inputContainer">
@@ -159,7 +154,7 @@ class App extends React.Component {
               </div>
             </form>
             <form className = "form enterChore" action="POST" onSubmit={this.addChoreToUser}>
-              <img src="../../public/assets/twoFingers.svg" alt="icon denoting that this is the second step"/>
+              <img src="public/assets/twoFingers.svg" alt="icon denoting that this is the second step"/>
              <div className = "formInteriorContainer">
                 <h2>Add a chore</h2>
                 <h3>You can now assign a chore! Enter a task below and it will be randomly assigned to a user.</h3>
